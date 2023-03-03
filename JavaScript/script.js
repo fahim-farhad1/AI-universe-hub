@@ -1,11 +1,12 @@
-const assignmentDataLoad = () => {
+const apiDataLoad = () => {
     fetch('https://openapi.programming-hero.com/api/ai/tools')
     .then(responce => responce.json())
-    .then(data => displayAssignmentData(data.data.tools));
+    .then(data => displayapiData(data.data.tools));
     }
-const displayAssignmentData = tools => {
+    
+const displayapiData = tools => {
     console.log(tools);
-    const seeMore = document.getElementById('see-more');
+        const seeMore = document.getElementById('see-more');
     if (tools.length > 6){
         tools = tools.slice(0,6);
           seeMore.classList.remove('d-none');
@@ -13,6 +14,7 @@ const displayAssignmentData = tools => {
     else{
         seeMore.classList.add('d-none');
     }
+    loadingSpinner (true);
     const toolsContainer =document.getElementById('tools-container');
     tools.forEach(tool => {
     const toolDiv = document.createElement('div');
@@ -22,7 +24,13 @@ const displayAssignmentData = tools => {
         <img src="${tool.image}" class="card-img-top img-fluid" alt="...">
         <div class="card-body">
             <h5 class="card-title">${tool.name}</h5>
-            <p class="card-text">${tool.features}</p>
+            <ol>
+                <li>${tool.features[0]}</li>
+                <li>${tool.features[1]}</li>
+                <li>${tool.features[2]}</li>
+                
+            </ol>
+            
             <hr>
             <h5 class="card-title">${tool.name}</h5>
             <i style="font-size:24px" class="fa">&#xf073;  ${tool.published_in}</i>
@@ -33,14 +41,22 @@ const displayAssignmentData = tools => {
     toolsContainer.appendChild(toolDiv);
 
     })
+    loadingSpinner(false);
 }
 
+
+
 // Show all API Tools 
-document.getElementById('see-more').addEventListener('click', function(){
-
-})
-
-
-
-
-assignmentDataLoad();
+// document.getElementById('btn-see-more').addEventListener('click', function(){
+   
+// })
+const loadingSpinner = isloading => {
+    const loader = document.getElementById('Spinner');
+    if(isloading){
+        loader.classList.remove('d-none');
+    }
+    else{
+        loader.classList.add('d-none');
+    }
+}
+apiDataLoad();

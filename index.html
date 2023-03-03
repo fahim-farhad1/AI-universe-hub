@@ -11,19 +11,31 @@
   </head>
   <body>
     <h1 class="text-center mt-5">AI Universe Hub</h1>
-    <div class="text-center mt-3 mb-5">
-        <button class="btn btn-danger">Sort By Data</button>
-    </div>
     <main>
-        <!-- Card Section  -->
+      <div class="text-center mt-3 mb-5">
+        <button class="btn btn-danger">Sort By Data</button>
+      </div>
+      <!-- Spinner Section  -->
+      <section  class="mb-5">
+        <div id="Spinner" class="d-flex justify-content-center d-none">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
+      <!-- Card Section  -->
         <section>
             <div id="tools-container" class="row row-cols-1 row-cols-md-3 g-4">
             
               </div>
         </section>
-        <div id="see-more" class="text-center mt-3 mb-5 d-none">
-          <button id="btn-see-more" class="btn btn-danger">See More</button>
-        </div>
+        <!-- Button Section  -->
+        <section>
+          <div id="see-more" class="text-center mt-3 mb-5 d-none">
+            <button id="btn-see-more" class="btn btn-danger">See More</button>
+          </div>
+        </section>
+        
     </main>
 
     <!-- Inner Javascript link  -->
