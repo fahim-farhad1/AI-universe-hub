@@ -1,33 +1,21 @@
 //-----------API Data Load-------------------
 const apiDataLoad = () => {
-        //-----------Spinner Start------------
-    loadingSpinner (true);
-    //-------API Data---------------
-    fetch('https://openapi.programming-hero.com/api/ai/tools')
-    .then(responce => responce.json())
-    .then(data => displayapiData(data.data.tools));
-    }
+  //-----------Spinner Start------------
+  loadingSpinner(true);
+  //-------API Data---------------
+  fetch("https://openapi.programming-hero.com/api/ai/tools")
+    .then((responce) => responce.json())
+    .then((data) => displayapiData(data.data.tools.slice(0, 6)));
+};
 
 //-----------Displayed API Data--------------
-const displayapiData = tools => {
-    
-    // ---------------fixt six card show----------------
-
-        const seeMore = document.getElementById('see-more');
-    if (tools.length > 6){
-        tools = tools.slice(0,6);
-          seeMore.classList.remove('d-none');
-    }
-    else{
-        seeMore.classList.add('d-none');
-    }
-
-
-    //--------Card Element's---------------
-    const toolsContainer =document.getElementById('tools-container');
-    tools.forEach(tool => {
-    const toolDiv = document.createElement('div');
-    toolDiv.classList.add('col');
+const displayapiData = (tools) => {
+  //--------Card Element's---------------
+  const toolsContainer = document.getElementById("tools-container");
+  toolsContainer.innerHTML = " ";
+  tools.forEach((tool) => {
+    const toolDiv = document.createElement("div");
+    toolDiv.classList.add("col");
     toolDiv.innerHTML = `
     <div class="card h-100">
         <img src="${tool.image}" class="card-img-top img-fluid" alt="...">
@@ -41,19 +29,21 @@ const displayapiData = tools => {
             <hr>
             <h5 class="card-title">${tool.name}</h5>
             <i style="font-size:24px" class="fa">&#xf073;  ${tool.published_in}</i>
-            <button style="margin-left: 250px;" data-bs-toggle="modal" data-bs-target="#toolDetielsModal" onclick="modalAIInfo()" ><i class="fa-solid fa-arrow-right"></i></button>
+            <button style="margin-left: 250px;" data-bs-toggle="modal" data-bs-target="#toolDetielsModal" 
+            onclick="modalAIInfo${(tools.id)}" ><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
     `;
     toolsContainer.appendChild(toolDiv);
-    })
-    //--------Spinner End----------------
-    loadingSpinner(false);
+  });
+  //--------Spinner End----------------
+  loadingSpinner(false);
 
-    //-------------Display Modal Informetion-------------
- const modalAIInfo = () =>{
-    const modalContainer = document.getElementById('tools-detials');
-        modalContainer.innerHTML = `
+  //-------------Display Modal Informetion-------------
+  const modalAIInfo = (id) => {
+    const modalContainer = document.getElementById("tools-detials");
+    console.log(id);
+    modalContainer.innerHTML = `
         <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
         <div class="card">
@@ -73,50 +63,25 @@ const displayapiData = tools => {
         </div>
         </div>
         `;
- }
-    
-
-}
-
-
-
-
-
-
+  };
+};
 
 //-----------Spinner--------------
-const loadingSpinner = isloading => {
-    const loader = document.getElementById('Spinner');
-    if(isloading){
-        loader.classList.remove('d-none');
-    }
-    else{
-        loader.classList.add('d-none');
-    }
-}
+const loadingSpinner = (isloading) => {
+  const loader = document.getElementById("Spinner");
+  if (isloading) {
+    loader.classList.remove("d-none");
+  } else {
+    loader.classList.add("d-none");
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//------------Show all API Tools-------------
-document.getElementById('btn-see-more').addEventListener('click', function(){
-    
-})
+const seeMore = document.getElementById("see-more");
+seeMore.addEventListener("click", function () {
+  fetch("https://openapi.programming-hero.com/api/ai/tools")
+    .then((responce) => responce.json())
+    .then((data) => displayapiData(data.data.tools));
+  seeMore.classList.add("d-none");
+});
 
 apiDataLoad();
