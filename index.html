@@ -1,22 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AI-Universe-Hub</title>
     <!-- bootstrap Link  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
     <!-- Font Awesome Link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <h1 class="text-center mt-5">AI Universe Hub</h1>
+<h1 class="text-center mt-5">AI Universe Hub</h1>
     <main>
       <div class="text-center mt-3 mb-5">
         <button class="btn btn-danger">Sort By Data</button>
       </div>
       <!-- Spinner Section  -->
-      <section  class="mb-5">
+      <section class="mb-5">
         <div id="Spinner" class="d-flex justify-content-center d-none">
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -25,46 +33,98 @@
       </section>
       <!-- Modal Section  -->
       <section>
-<!-- Modal -->
-<div class="modal fade" id="toolDetielsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="toolDetielsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="toolDetielsModalLabel"></h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div id="tools-detials" class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="toolDetielsModal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="toolDetielsModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="toolDetielsModalLabel"></h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <!-- Modal Body -->
+              <div id="tools-detials" class="modal-body ">
+                <div class="row row-cols-1 row-cols-md-2 g-4  ">
+                  <div class="col">
+                  <div class="card ">
+                  <div class="card-body">
+                      <h5 id="modal-cart-title"></h5>
+                  <div class="d-flex ">
+                    <div id="purchase" class="d-flex"></div>
+                  <div></div>
+                  <div></div>
+                  </div>
+                  </div>
+                <div class="d-flex bg-light">
+                  <div>
+                    <p id="features" class="card-title">Features<p>
+                      </div>
+                      <div>
+                        <p id="integration" class="card-title">Integration<p>
+                        
+                    </div>
+                </div>
+                  </div>
+                  </div>
+                  <div class="col">
+                  <div class="card">
+                  <img src="" id="modal-img" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 id="question-text" class="card-title"></h5>
+                      <p id="answer-text" class="card-text"></p>
+                  </div>
+                  </div>
+                  </div>
+
+
+              </div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- Card Section  -->
-        <section>
-            <div id="tools-container" class="row row-cols-1 row-cols-md-3 g-4">
-            
-              </div>
-        </section>
-        <!-- Modal Detials Section -->
-        <!-- Button Section  -->
-        <section>
-          <div id="see-more" class="text-center mt-3 mb-5">
-            <button id="btn-see-more" class="btn btn-danger">See More</button>
-          </div>
-        </section>
-        
+      <section>
+        <div
+          id="tools-container"
+          class="row row-cols-1 row-cols-md-3 g-4"
+        ></div>
+      </section>
+      <!-- Modal Detials Section -->
+      <!-- Button Section  -->
+      <section>
+        <div id="see-more" class="text-center mt-3 mb-5">
+          <button id="btn-see-more" class="btn btn-danger">See More</button>
+        </div>
+      </section>
     </main>
 
     <!-- Inner Javascript link  -->
     <script src="JavaScript/script.js"></script>
 
     <!-- Font Awesome JavaScript Link  -->
-    <script src="https://kit.fontawesome.com/eaf9c967d5.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/eaf9c967d5.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- bootstrap Link  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
